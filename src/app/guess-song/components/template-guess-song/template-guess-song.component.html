@@ -1,0 +1,48 @@
+<mat-card
+  class="template-card"
+  [ngClass]="guess ? 'guess_card' : 'playit_card'"
+>
+  <mat-card-content>
+    <ng-container *ngIf="guess; else PLAYIT" class="template-card__audio">
+      <div class="template-card__audio">
+        <audio
+          controls
+          [controlsList]="['noplaybackrate']"
+          id="audio"
+          [src]="song.song"
+          #audio
+          type="audio/mp3"
+        ></audio>
+        <button mat-fab extended (click)="showClue()" [disabled]="clue">
+          <mat-icon>help</mat-icon>
+          <span class="black">Pista</span>
+        </button>
+      </div>
+      <div class="template-card__audio" *ngIf="clue">
+        <audio
+          controls
+          [controlsList]="['noplaybackrate']"
+          id="audio"
+          [src]="song.clue"
+          #audio
+          type="audio/mp3"
+        ></audio>
+      </div>
+    </ng-container>
+    <ng-template #PLAYIT>
+      <div class="template-card__partiture">
+        <img [src]="song.song" (click)="openModal()" />
+      </div>
+    </ng-template>
+    <form>
+      <mat-form-field>
+        <mat-label>Canción</mat-label>
+        <input matInput type="text" id="answer" [formControl]="answer" />
+        <mat-error>¿Seguuuuuuuuuro?</mat-error>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button (click)="checkForm()">Comprobar</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

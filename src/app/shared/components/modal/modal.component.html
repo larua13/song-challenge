@@ -1,0 +1,9 @@
+<mat-dialog-content class="modal" *ngIf="!data?.img; else img">
+  <h1 *ngIf="data?.title">{{ data.title }}</h1>
+  <p *ngIf="data?.text" [innerHTML] = "data.text"></p>
+  <mat-icon [color]="'primary'" *ngIf="data.icon">{{ data.icon }}</mat-icon>
+</mat-dialog-content>
+
+<ng-template #img>
+  <img *ngIf="data?.img" [src]="data.img" object-fit="contain" />
+</ng-template>

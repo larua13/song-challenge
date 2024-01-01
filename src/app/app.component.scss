@@ -1,0 +1,34 @@
+.song-challenge {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+  mat-card {
+    max-width: 300px;
+  }
+}
+
+// Pantalla pequeña (menos de 576 píxeles de ancho)
+@media (max-width: 576px) {
+  .song-challenge {
+    grid-template-columns: 1fr 1fr;
+    mat-card {
+      max-width: 200px;
+    }
+  }
+}
+
+// Pantalla media (entre 576 y 768 píxeles de ancho)
+@media (max-width: 768px) and (min-width: 577px) {
+  /* Estilos para pantallas medianas */
+  .song-challenge {
+    grid-template-columns: 1fr 1fr;
+    mat-card {
+      max-width: 200px;
+    }
+  }
+}

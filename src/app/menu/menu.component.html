@@ -1,0 +1,86 @@
+<div class="restart">
+  <button mat-mini-fab (click)="restart()">
+    <mat-icon>restart_alt</mat-icon>
+  </button>
+</div>
+<div class="song-challenge" *ngIf="!finish; else FINISH">
+  <mat-card
+    ><img
+      mat-card-image
+      src="../../assets/SIGUE CANTANDO.png"
+      alt="Sigue cantando"
+      [routerLink]="progress[1].resolve ? '' : 'sigueCantando'"
+      [ngClass]="progress[1].resolve ? 'song-challenge__resolved' : ''"
+  /></mat-card>
+  <mat-card>
+    <img
+      mat-card-image
+      src="../../assets/doremix.png"
+      alt="Doremix"
+      [routerLink]="progress[0].resolve ? '' : 'doremix'"
+      [ngClass]="progress[0].resolve ? 'song-challenge__resolved' : ''"
+    />
+  </mat-card>
+  <mat-card
+    ><img
+      mat-card-image
+      src="../../assets/ordena.png"
+      alt="Ordena la canción"
+      [routerLink]="progress[2].resolve ? '' : 'order'"
+      [ngClass]="progress[2].resolve ? 'song-challenge__resolved' : ''"
+  /></mat-card>
+  <mat-card
+    ><img
+      mat-card-image
+      src="../../assets/preguntas.png"
+      alt="Preguntas random"
+      [routerLink]="progress[3].resolve ? '' : 'preguntas'"
+      [ngClass]="progress[3].resolve ? 'song-challenge__resolved' : ''"
+  /></mat-card>
+  <mat-card
+    ><img
+      mat-card-image
+      src="../../assets/adivina.png"
+      alt="Adivina la canción"
+      [routerLink]="progress[4].resolve ? '' : 'adivina'"
+      [ngClass]="progress[4].resolve ? 'song-challenge__resolved' : ''"
+  /></mat-card>
+  <mat-card
+    ><img
+      mat-card-image
+      src="../../assets/tocala.png"
+      alt="Tócala"
+      [routerLink]="progress[5].resolve ? '' : 'tocala'"
+      [ngClass]="progress[5].resolve ? 'song-challenge__resolved' : ''"
+  /></mat-card>
+</div>
+
+<ng-template #FINISH>
+  <div class="finish">
+    <h1>¡ENHORABUENA!</h1>
+    <ng-container *ngIf="!clue">
+      <p>Has resuelto todas las pruebas</p>
+      <p>Y has encontrado todos los regalos</p>
+      <p>Por eso te mereces uno extra</p>
+      <p>Si es que lo encuentras, claro</p>
+      <p>Está escondido en alguna parte del salón</p>
+    </ng-container>
+    <p *ngIf="!clue3">
+      Cada 2 minutos aparecerá una nueva pista en esta ventana
+    </p>
+    <p *ngIf="clue3">Ya no hay más pistas. Recuerda:</p>
+    <mat-card *ngIf="clue"
+      ><mat-card-content><p>Está detrás de algo</p></mat-card-content></mat-card
+    >
+    <mat-card *ngIf="clue2"
+      ><mat-card-content
+        ><p>Está entre el salón y el baño</p></mat-card-content
+      ></mat-card
+    >
+    <mat-card *ngIf="clue3"
+      ><mat-card-content
+        ><p>Está bajo tus raíces</p></mat-card-content
+      ></mat-card
+    >
+  </div>
+</ng-template>

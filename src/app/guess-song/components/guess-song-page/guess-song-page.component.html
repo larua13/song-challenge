@@ -1,0 +1,21 @@
+<div class="doremix guess">
+  <div class="doremix__head">
+    <img src="../../../../assets/adivina_title_bg.png" />
+    <div class="doremix__head__subtitle">
+      <p>
+        ¡Oh, no! Las siguientes canciones han sufrido un cambio brutal de tiempo
+      </p>
+      <p>
+        En esta prueba deberás poner bien el oído para reconocerlas a distinta
+        velocidad, tempo o tono
+      </p>
+      <p>
+        Esta canción está <span>{{ currentSong.mode }}</span>
+      </p>
+    </div>
+  </div>
+  <guess-song-template
+    [song]="currentSong"
+    (nextSong)="nextQuestion()"
+  ></guess-song-template>
+</div>

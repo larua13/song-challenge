@@ -1,0 +1,21 @@
+<div class="doremix">
+  <div class="doremix__head">
+    <div class="doremix__head__subtitle">
+      <img src="../../../assets/ordena_title.png" />
+      <p>
+        Para completar este reto primero debes conseguir 8 fragmentos de canción
+      </p>
+      <p>Si ya los tienes, ¿sabrías introducir el código secreto?</p>
+    </div>
+    <form class="doremix__input">
+      <mat-form-field>
+        <mat-label>Código secreto</mat-label>
+        <input matInput type="text" id="codigo" [formControl]="codigo" />
+        <mat-error>Piensa un poco, bro</mat-error>
+      </mat-form-field>
+      <button mat-fab (click)="checkForm()" color="warn">
+        <mat-icon>keyboard_double_arrow_right</mat-icon>
+      </button>
+    </form>
+  </div>
+</div>

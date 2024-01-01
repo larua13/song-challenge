@@ -1,0 +1,12 @@
+<div class="doremix">
+  <div class="doremix__head">
+    <img src="../../../assets/siguecantando_title.png" />
+    <div class="doremix__head__subtitle">
+      <p>¿Sabrías continuar la letra de la canción?</p>
+    </div>
+  </div>
+  <siguecantando-template
+    [song]="currentSong"
+    (nextSong)="nextQuestion()"
+  ></siguecantando-template>
+</div>

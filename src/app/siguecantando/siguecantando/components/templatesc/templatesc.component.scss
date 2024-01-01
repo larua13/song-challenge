@@ -1,0 +1,57 @@
+.template-card {
+  width: 620px;
+  &__img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  &__audio {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    audio {
+      width: 100%;
+    }
+  }
+  .mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .mdc-card__actions {
+    justify-content: flex-end;
+  }
+}
+.mat-mdc-card {
+  background-color: rgba(122, 20, 100, 0.747);
+}
+
+// Pantalla pequeña (menos de 576 píxeles de ancho)
+@media (max-width: 576px) {
+  .template-card {
+    width: 200px;
+  }
+  img {
+    width: 150px;
+  }
+}
+
+// Pantalla media (entre 576 y 768 píxeles de ancho)
+@media (max-width: 768px) and (min-width: 577px) {
+  /* Estilos para pantallas medianas */
+  .template-card {
+    width: 300px;
+  }
+  img {
+    width: 250px;
+  }
+}
+
+// Media query para pantallas medianas (ejemplo: tabletas)
+@media only screen and (max-width: 1023px) {
+  .template-card {
+    width: 450px;
+  }
+  img {
+    width: 300px;
+  }
+}

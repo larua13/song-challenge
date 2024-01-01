@@ -1,0 +1,13 @@
+<div class="doremix playit">
+  <div class="doremix__head">
+    <img src="../../../../assets/tocala_title.png" width="100" />
+    <div class="doremix__head__subtitle">
+      <p>¿Sabrías qué canción es tocándola al piano?</p>
+      <span>Pincha en la partitura para ampliar</span>
+    </div>
+    <guess-song-template
+      [song]="currentSong"
+      (nextSong)="nextQuestion()"
+    ></guess-song-template>
+  </div>
+</div>

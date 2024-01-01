@@ -1,0 +1,87 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: url("../../../../assets/preguntas_back.png") center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  gap: 10px;
+  &__head {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    justify-self: flex-start;
+    gap: 10px;
+    h1 {
+      font-size: 50px;
+      font-style: bold;
+    }
+    p {
+      margin-top: 20px;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-style: oblique;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    img {
+      width: 450px;
+    }
+  }
+  &__input {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+// Pantalla pequeña (menos de 576 píxeles de ancho)
+@media (max-width: 576px) {
+  .questions {
+    &__head {
+      img {
+        width: 100px;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Pantalla media (entre 576 y 768 píxeles de ancho)
+@media (max-width: 768px) and (min-width: 577px) {
+  /* Estilos para pantallas medianas */
+  .questions {
+    &__head {
+      img {
+        width: 300px;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+// Media query para pantallas medianas (ejemplo: tabletas)
+@media only screen and (max-width: 1367px) {
+  .questions {
+    &__head {
+      img {
+        width: 300px;
+        margin: 0 auto;
+      }
+      gap: 10px;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

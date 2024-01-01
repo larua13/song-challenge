@@ -1,0 +1,18 @@
+<mat-card class="template-card">
+  <mat-card-content>
+    <mat-card-title>
+      <h1>{{ question.question }}</h1>
+      <img [src]="question.img" />
+    </mat-card-title>
+    <form>
+      <mat-radio-group [formControl]="radio" class="template-card-radio">
+        <mat-card *ngFor="let option of question.answers; let i = index">
+          <mat-card-content (click)="selectOption(i)">
+            <label>{{ option }}</label>
+          </mat-card-content>
+        </mat-card>
+      </mat-radio-group>
+    </form>
+  </mat-card-content>
+  <mat-error *ngIf="radio.errors">Esa no es, bro</mat-error>
+</mat-card>

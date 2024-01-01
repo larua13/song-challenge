@@ -1,0 +1,14 @@
+<div class="questions">
+  <div class="questions__head">
+    <div class="questions__head__subtitle">
+      <img src="../../../assets/preguntas_title.png" />
+      <p>Selecciona la respuesta correcta</p>
+    </div>
+    <form>
+      <questions-templatequestions
+        [question]="currentSong"
+        (nextSong)="nextQuestion()"
+      ></questions-templatequestions>
+    </form>
+  </div>
+</div>

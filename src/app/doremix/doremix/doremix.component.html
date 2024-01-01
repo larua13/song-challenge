@@ -1,0 +1,13 @@
+<div class="doremix doremix">
+  <div class="doremix__head">
+    <img src="../../../assets/doremix title.png" />
+    <div class="doremix__head__subtitle">
+      <p>Hemos fusionado la letra de una canción con la base de otra</p>
+      <p>¿Sabrías decirnos los títulos de ambas canciones?</p>
+    </div>
+  </div>
+  <doremix-template
+    [song]="currentSong"
+    (nextSong)="nextQuestion()"
+  ></doremix-template>
+</div>
