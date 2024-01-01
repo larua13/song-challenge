@@ -19,7 +19,10 @@ export class PlayitPageComponent {
     private progressService: ProgressService,
     private router: Router
   ) {
-
+    const resolved = this.progressService.getProgress('tocala');
+    if (resolved) {
+      this.showModal();
+    }
   }
 
   nextQuestion() {
@@ -35,16 +38,20 @@ export class PlayitPageComponent {
       this.currentSong = nextQuestion;
       this.currentQuestion++;
     } else {
-      this.dialog.open(ModalComponent, {
-        width: '500px',
-        data: {
-          title: 'TÓCALA, TÓCALA SUPERADO',
-          text: 'En el reino del descanso,<br> mi esencia acoge sueños,<br> un refugio de quietud,<br> donde reposan los dueños.<br> Entre sombras y suspiros,<br> en la cama soy reina,<br> ¿Qué objeto soy que en el reposo se desvela?',
-          icon: 'waving_hand',
-        },
-      });
       this.progressService.saveProgress('tocala');
-      this.router.navigate(['']);
+      this.showModal();
     }
+  }
+
+  showModal(): void {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        title: 'TÓCALA, TÓCALA SUPERADO',
+        text: 'En el reino del descanso,<br> mi esencia acoge sueños,<br> un refugio de quietud,<br> donde reposan los dueños.<br> Entre sombras y suspiros,<br> en la cama soy reina,<br> ¿Qué objeto soy que en el reposo se desvela?',
+        icon: 'waving_hand',
+      },
+    });
+    this.router.navigate(['']);
   }
 }

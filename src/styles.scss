@@ -64,6 +64,11 @@ body {
       color: black;
     }
   }
+
+  &.follow {
+    background: url("./assets/siguecantando_back.png") center;
+  }
+
   &.playit {
     background: url("./assets/tocala_back.png") center;
     .doremix__head {
@@ -79,6 +84,7 @@ body {
     flex-direction: column;
     text-align: center;
     justify-self: flex-start;
+    align-items: center;
     gap: 10px;
     h1 {
       font-size: 50px;

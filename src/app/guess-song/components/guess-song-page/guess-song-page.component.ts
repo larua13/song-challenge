@@ -18,7 +18,12 @@ export class GuessSongPageComponent {
     private dialog: MatDialog,
     private progressService: ProgressService,
     private router: Router
-  ) {}
+  ) {
+    const resolved = this.progressService.getProgress('adivina');
+    if (resolved) {
+      this.showModal();
+    }
+  }
 
   nextQuestion() {
     const nextQuestion = this.answers[this.currentQuestion + 1];
@@ -32,16 +37,20 @@ export class GuessSongPageComponent {
       this.currentSong = nextQuestion;
       this.currentQuestion++;
     } else {
-      this.dialog.open(ModalComponent, {
-        width: '500px',
-        data: {
-          title: 'ADIVINA LA CANCIÓN SUPERADO',
-          text: 'En la cocina descansa,<br> sin inmersión en grasas,<br> un aparato moderno,<br> donde el calor abraza.<br> Viento caliente danza,<br> en su ballet de sabor,<br> ¿Qué es este artefacto en la cocina con ardor?',
-          icon: 'check',
-        },
-      });
       this.progressService.saveProgress('adivina');
-      this.router.navigate(['']);
+      this.showModal();
     }
+  }
+
+  showModal(): void {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        title: 'ADIVINA LA CANCIÓN SUPERADO',
+        text: 'En la cocina descansa,<br> sin inmersión en grasas,<br> un aparato moderno,<br> donde el calor abraza.<br> Viento caliente danza,<br> en su ballet de sabor,<br> ¿Qué es este artefacto en la cocina con ardor?',
+        icon: 'check',
+      },
+    });
+    this.router.navigate(['']);
   }
 }

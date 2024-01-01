@@ -19,7 +19,12 @@ export class QuestionsPageComponent {
     private dialog: MatDialog,
     private progressService: ProgressService,
     private router: Router
-  ) {}
+  ) {
+    const resolved = this.progressService.getProgress('preguntas');
+    if (resolved) {
+      this.showModal();
+    }
+  }
 
   nextQuestion() {
     const nextQuestion = this.questions[this.currentQuestion + 1];
@@ -34,16 +39,20 @@ export class QuestionsPageComponent {
       this.currentSong = nextQuestion;
       this.currentQuestion++;
     } else {
-      this.dialog.open(ModalComponent, {
-        width: '500px',
-        data: {
-          title: 'PREGUNTAS RANDOM SUPERADO',
-          text: 'En el mueble guardado,<br> en su rincón oculto,<br> prendas delicadas en su suave tumulto.<br> De encajes y colores,<br> un secreto en su cajón,<br> ¿Qué esconde allí en íntimo rincón?<br>',
-          icon: 'celebration',
-        },
-      });
+      this.showModal();
       this.progressService.saveProgress('preguntas');
-      this.router.navigate(['']);
     }
+  }
+
+  showModal(): void {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        title: 'PREGUNTAS RANDOM SUPERADO',
+        text: 'En el mueble guardado,<br> en su rincón oculto,<br> prendas delicadas en su suave tumulto.<br> De encajes y colores,<br> un secreto en su cajón,<br> ¿Qué esconde allí en íntimo rincón?<br>',
+        icon: 'celebration',
+      },
+    });
+    this.router.navigate(['']);
   }
 }

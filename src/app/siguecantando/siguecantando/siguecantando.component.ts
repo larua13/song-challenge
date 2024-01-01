@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-siguecantando',
   templateUrl: './siguecantando.component.html',
-  styleUrls: ['./siguecantando.component.scss'],
 })
 export class SiguecantandoComponent {
   answers = SigueCantandoData;
@@ -19,7 +18,12 @@ export class SiguecantandoComponent {
     private dialog: MatDialog,
     private progressService: ProgressService,
     private router: Router
-  ) {}
+  ) {
+    const resolved = this.progressService.getProgress('sigueCantando');
+    if (resolved) {
+      this.showModal();
+    }
+  }
 
   nextQuestion() {
     const nextQuestion = this.answers[this.currentQuestion + 1];
@@ -34,16 +38,20 @@ export class SiguecantandoComponent {
       this.currentSong = nextQuestion;
       this.currentQuestion++;
     } else {
-      this.dialog.open(ModalComponent, {
-        width: '500px',
-        data: {
-          title: 'SIGUE CANTANDO SUPERADO',
-          text: '<p>En su prisión de cristal,<br> el silencio es su canción,<br> un mundo encapsulado,<br> misterioso rincón,<br> líquido hogar donde la vida se enreda, <br> ¿Qué objeto es este que en vidrio se hereda?</p>',
-          icon: 'auto_awesome',
-        },
-      });
+      this.showModal();
       this.progressService.saveProgress('sigueCantando');
-      this.router.navigate(['']);
     }
+  }
+
+  showModal(): void {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        title: 'SIGUE CANTANDO SUPERADO',
+        text: '<p>En su prisión de cristal,<br> el silencio es su canción,<br> un mundo encapsulado,<br> misterioso rincón,<br> líquido hogar donde la vida se enreda, <br> ¿Qué objeto es este que en vidrio se hereda?</p>',
+        icon: 'auto_awesome',
+      },
+    });
+    this.router.navigate(['']);
   }
 }

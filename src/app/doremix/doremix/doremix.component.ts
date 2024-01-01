@@ -18,7 +18,12 @@ export class DoremixComponent {
     private dialog: MatDialog,
     private progressService: ProgressService,
     private router: Router
-  ) {}
+  ) {
+    const resolved = this.progressService.getProgress('doremix');
+    if (resolved) {
+      this.showModal();
+    }
+  }
 
   nextQuestion() {
     const nextQuestion = this.answers[this.currentQuestion + 1];
@@ -32,16 +37,19 @@ export class DoremixComponent {
       this.currentSong = nextQuestion;
       this.currentQuestion++;
     } else {
-      this.dialog.open(ModalComponent, {
-        width: '500px',
-        data: {
-          title: 'DOREMIX SUPERADO',
-          text: 'Cuelgo en la entrada,<br> soy de tela o de metal,<br> me deslizo suavemente,<br> en tu hogar siempre igual.<br> Cuando el sol deslumbra,<br> me despliego con soltura,<br> ¿Qué soy en tu casa que a veces tapo y a veces aseguro?',
-          icon: 'check',
-        },
-      });
+      this.showModal();
       this.progressService.saveProgress('doremix');
-      this.router.navigate(['']);
     }
+  }
+  showModal(): void {
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: {
+        title: 'DOREMIX SUPERADO',
+        text: 'En la esquina del parpadeo eléctrico,<br>Mi reino cobra vida, un reino sintético.<br>Botones y palancas, mi lengua en acción,<br>En el reino de píxeles, soy la creación.<br>¿Quién soy en este rincón donde la destreza es la única tradición?',
+        icon: 'check',
+      },
+    });
+    this.router.navigate(['']);
   }
 }

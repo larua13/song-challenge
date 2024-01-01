@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProgressService } from '../services/progress.service';
 import { Challenge } from '../shared/data/menu.data';
 

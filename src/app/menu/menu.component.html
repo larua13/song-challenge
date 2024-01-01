@@ -9,7 +9,7 @@
       mat-card-image
       src="../../assets/SIGUE CANTANDO.png"
       alt="Sigue cantando"
-      [routerLink]="progress[1].resolve ? '' : 'sigueCantando'"
+      [routerLink]="'sigueCantando'"
       [ngClass]="progress[1].resolve ? 'song-challenge__resolved' : ''"
   /></mat-card>
   <mat-card>
@@ -17,7 +17,7 @@
       mat-card-image
       src="../../assets/doremix.png"
       alt="Doremix"
-      [routerLink]="progress[0].resolve ? '' : 'doremix'"
+      [routerLink]="'doremix'"
       [ngClass]="progress[0].resolve ? 'song-challenge__resolved' : ''"
     />
   </mat-card>
@@ -26,7 +26,7 @@
       mat-card-image
       src="../../assets/ordena.png"
       alt="Ordena la canción"
-      [routerLink]="progress[2].resolve ? '' : 'order'"
+      [routerLink]="'order'"
       [ngClass]="progress[2].resolve ? 'song-challenge__resolved' : ''"
   /></mat-card>
   <mat-card
@@ -34,7 +34,7 @@
       mat-card-image
       src="../../assets/preguntas.png"
       alt="Preguntas random"
-      [routerLink]="progress[3].resolve ? '' : 'preguntas'"
+      [routerLink]="'preguntas'"
       [ngClass]="progress[3].resolve ? 'song-challenge__resolved' : ''"
   /></mat-card>
   <mat-card
@@ -42,7 +42,7 @@
       mat-card-image
       src="../../assets/adivina.png"
       alt="Adivina la canción"
-      [routerLink]="progress[4].resolve ? '' : 'adivina'"
+      [routerLink]="'adivina'"
       [ngClass]="progress[4].resolve ? 'song-challenge__resolved' : ''"
   /></mat-card>
   <mat-card
@@ -50,7 +50,7 @@
       mat-card-image
       src="../../assets/tocala.png"
       alt="Tócala"
-      [routerLink]="progress[5].resolve ? '' : 'tocala'"
+      [routerLink]="'tocala'"
       [ngClass]="progress[5].resolve ? 'song-challenge__resolved' : ''"
   /></mat-card>
 </div>
